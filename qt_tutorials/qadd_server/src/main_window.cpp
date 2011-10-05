@@ -31,8 +31,22 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent) :
 	setWindowIcon(QIcon(":/images/icon.png"));
 	ui.tab_manager->setCurrentIndex(0); // ensure the first tab is showing - qt-designer should have this already hardwired, but often loses it (settings?).
 
-	ui.view_logging->setModel(qnode.loggingModel());
 	setWindowTitle(QApplication::translate("MainWindowDesign", "QAdd Server", 0, QApplication::UnicodeUTF8));
+
+	/*********************
+    ** Logging
+    **********************/
+	ui.view_logging->setModel(qnode.loggingModel());
+	QObject::connect(&qnode, SIGNAL(loggingUpdated()), this, SLOT(updateLoggingView()));
+    QObject::connect(&qnode, SIGNAL(rosShutdown()), this, SLOT(close()));
+
+    /*********************
+    ** Auto Start
+    **********************/
+    if ( ui.checkbox_remember_settings->isChecked() ) {
+        on_button_connect_clicked(true);
+    }
+
 }
 
 MainWindow::~MainWindow() {}
@@ -41,22 +55,37 @@ MainWindow::~MainWindow() {}
 ** Implementation [Slots]
 *****************************************************************************/
 
+void MainWindow::showNoMasterMessage() {
+	QMessageBox msgBox;
+	msgBox.setText("Couldn't find the ros master.");
+	msgBox.exec();
+    close();
+}
+
 /*
  * These triggers whenever the button is clicked, regardless of whether it
  * is already checked or not.
  */
 
 void MainWindow::on_button_connect_clicked(bool check ) {
-	ui.button_connect->setEnabled(false);
 	if ( ui.checkbox_use_environment->isChecked() ) {
-		qnode.init(ui.line_edit_topic->text().toStdString());
+		if ( !qnode.init(ui.line_edit_topic->text().toStdString()) ) {
+			showNoMasterMessage();
+		} else {
+			ui.button_connect->setEnabled(false);
+		}
 	} else {
-		qnode.init(ui.line_edit_master->text().toStdString(),
+		if ( ! qnode.init(ui.line_edit_master->text().toStdString(),
 				   ui.line_edit_host->text().toStdString(),
-				   ui.line_edit_topic->text().toStdString());
-		ui.line_edit_master->setReadOnly(true);
-		ui.line_edit_host->setReadOnly(true);
-		ui.line_edit_topic->setReadOnly(true);
+				   ui.line_edit_topic->text().toStdString() )
+				   ) {
+			showNoMasterMessage();
+		} else {
+			ui.button_connect->setEnabled(false);
+			ui.line_edit_master->setReadOnly(true);
+			ui.line_edit_host->setReadOnly(true);
+			ui.line_edit_topic->setReadOnly(true);
+		}
 	}
 }
 
@@ -73,6 +102,19 @@ void MainWindow::on_checkbox_use_environment_stateChanged(int state) {
 }
 
 /*****************************************************************************
+** Implemenation [Slots][manually connected]
+*****************************************************************************/
+
+/**
+ * This function is signalled by the underlying model. When the model changes,
+ * this will drop the cursor down to the last line in the QListview to ensure
+ * the user can always see the latest log message.
+ */
+void MainWindow::updateLoggingView() {
+        ui.view_logging->scrollToBottom();
+}
+
+/*****************************************************************************
 ** Implementation [Menu]
 *****************************************************************************/
 
@@ -85,16 +127,17 @@ void MainWindow::on_actionAbout_triggered() {
 *****************************************************************************/
 
 void MainWindow::ReadSettings() {
-    QSettings settings("Qt-Ros Package", "eros_qtalker");
-    QRect rect = settings.value("geometry", QRect(200, 200, 400, 400)).toRect();
-    move(rect.topLeft());
-    resize(rect.size());
+    QSettings settings("Qt-Ros Package", "qadd_server");
+    restoreGeometry(settings.value("geometry").toByteArray());
+    restoreState(settings.value("windowState").toByteArray());
     QString master_url = settings.value("master_url",QString("http://192.168.1.2:11311/")).toString();
     QString host_url = settings.value("host_url", QString("192.168.1.3")).toString();
     QString topic_name = settings.value("topic_name", QString("/chatter")).toString();
     ui.line_edit_master->setText(master_url);
     ui.line_edit_host->setText(host_url);
     ui.line_edit_topic->setText(topic_name);
+    bool remember = settings.value("remember_settings", false).toBool();
+    ui.checkbox_remember_settings->setChecked(remember);
     bool checked = settings.value("use_environment_variables", false).toBool();
     ui.checkbox_use_environment->setChecked(checked);
     if ( checked ) {
@@ -105,16 +148,18 @@ void MainWindow::ReadSettings() {
 }
 
 void MainWindow::WriteSettings() {
-    QSettings settings("Qt-Ros Package", "eros_qtalker");
+    QSettings settings("Qt-Ros Package", "qadd_server");
     settings.setValue("geometry", geometry());
     settings.setValue("master_url",ui.line_edit_master->text());
     settings.setValue("host_url",ui.line_edit_host->text());
     settings.setValue("topic_name",ui.line_edit_topic->text());
    	settings.setValue("use_environment_variables",QVariant(ui.checkbox_use_environment->isChecked()));
+    settings.setValue("windowState", saveState());
+    settings.setValue("remember_settings",QVariant(ui.checkbox_remember_settings->isChecked()));
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
 	WriteSettings();
-	event->accept();
+	QMainWindow::closeEvent(event);
 }

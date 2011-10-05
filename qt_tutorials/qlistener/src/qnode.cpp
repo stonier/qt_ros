@@ -34,23 +34,31 @@ QNode::~QNode() {
 	wait();
 }
 
-void QNode::init(const std::string &topic_name) {
+bool QNode::init(const std::string &topic_name) {
 	ros::init(init_argc,init_argv,"qlistener");
+	if ( ! ros::master::check() ) {
+		return false;
+	}
 	ros::start(); // our node handles go out of scope, so we want to control shutdown explicitly.
     ros::NodeHandle n;
 	chatter_subscriber = n.subscribe(topic_name, 1000, &QNode::chatterCallback, this);
 	start();
+	return true;
 }
 
-void QNode::init(const std::string &master_url, const std::string &host_url, const std::string &topic_name) {
+bool QNode::init(const std::string &master_url, const std::string &host_url, const std::string &topic_name) {
 	std::map<std::string,std::string> remappings;
 	remappings["__master"] = master_url;
 	remappings["__hostname"] = host_url;
 	ros::init(remappings,"qlistener");
+	if ( ! ros::master::check() ) {
+		return false;
+	}
 	ros::start(); // our node handles go out of scope, so we want to control shutdown explicitly.
     ros::NodeHandle n;
 	chatter_subscriber = n.subscribe(topic_name, 1000, &QNode::chatterCallback, this);
 	start();
+	return true;
 }
 
 void QNode::run() {

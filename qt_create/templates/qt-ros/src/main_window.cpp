@@ -100,7 +100,7 @@ void MainWindow::on_checkbox_use_environment_stateChanged(int state) {
 	}
 	ui.line_edit_master->setEnabled(enabled);
 	ui.line_edit_host->setEnabled(enabled);
-	ui.line_edit_topic->setEnabled(enabled);
+	//ui.line_edit_topic->setEnabled(enabled);
 }
 
 /*****************************************************************************
@@ -134,10 +134,10 @@ void MainWindow::ReadSettings() {
     restoreState(settings.value("windowState").toByteArray());
     QString master_url = settings.value("master_url",QString("http://192.168.1.2:11311/")).toString();
     QString host_url = settings.value("host_url", QString("192.168.1.3")).toString();
-    QString topic_name = settings.value("topic_name", QString("/chatter")).toString();
+    //QString topic_name = settings.value("topic_name", QString("/chatter")).toString();
     ui.line_edit_master->setText(master_url);
     ui.line_edit_host->setText(host_url);
-    ui.line_edit_topic->setText(topic_name);
+    //ui.line_edit_topic->setText(topic_name);
     bool remember = settings.value("remember_settings", false).toBool();
     ui.checkbox_remember_settings->setChecked(remember);
     bool checked = settings.value("use_environment_variables", false).toBool();
@@ -145,7 +145,7 @@ void MainWindow::ReadSettings() {
     if ( checked ) {
     	ui.line_edit_master->setEnabled(false);
     	ui.line_edit_host->setEnabled(false);
-    	ui.line_edit_topic->setEnabled(false);
+    	//ui.line_edit_topic->setEnabled(false);
     }
 }
 
@@ -153,7 +153,7 @@ void MainWindow::WriteSettings() {
     QSettings settings("Qt-Ros Package", "%(package)s");
     settings.setValue("master_url",ui.line_edit_master->text());
     settings.setValue("host_url",ui.line_edit_host->text());
-    settings.setValue("topic_name",ui.line_edit_topic->text());
+    //settings.setValue("topic_name",ui.line_edit_topic->text());
     settings.setValue("use_environment_variables",QVariant(ui.checkbox_use_environment->isChecked()));
     settings.setValue("geometry", saveGeometry());
     settings.setValue("windowState", saveState());

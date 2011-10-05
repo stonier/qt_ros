@@ -23,7 +23,7 @@
 #include <QThread>
 #include <QStringListModel>
 #include <std_msgs/String.h>
-#include "eros_qt_tutorials/TwoInts.h"
+#include "qt_tutorials/TwoInts.h"
 
 /*****************************************************************************
 ** Class
@@ -33,11 +33,11 @@ class QNode : public QThread {
 public:
 	QNode(int argc, char** argv );
 	~QNode();
-	void init(const std::string &topic_name);
-	void init(const std::string &master_url, const std::string &host_url, const std::string &topic_name);
+	bool init(const std::string &topic_name);
+	bool init(const std::string &master_url, const std::string &host_url, const std::string &topic_name);
 	void run();
 
-	bool add(eros_qt_tutorials::TwoInts::Request  &req, eros_qt_tutorials::TwoInts::Response &res);
+	bool add(qt_tutorials::TwoInts::Request  &req, qt_tutorials::TwoInts::Response &res);
 
 	QStringListModel* loggingModel() { return &logging; }
 

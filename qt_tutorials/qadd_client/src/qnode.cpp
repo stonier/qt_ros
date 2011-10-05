@@ -32,23 +32,31 @@ QNode::~QNode() {
 	wait();
 }
 
-void QNode::init(const std::string &topic_name) {
+bool QNode::init(const std::string &topic_name) {
 	ros::init(init_argc,init_argv,"add_two_ints_client");
+	if ( ! ros::master::check() ) {
+		return false;
+	}
 	ros::start(); // our node handles go out of scope, so we want to control shutdown explicitly.
     ros::NodeHandle n;
-    add_client = n.serviceClient<eros_qt_tutorials::TwoInts>("add_two_ints");
+    add_client = n.serviceClient<qt_tutorials::TwoInts>("add_two_ints");
 	start();
+	return true;
 }
 
-void QNode::init(const std::string &master_url, const std::string &host_url, const std::string &topic_name) {
+bool QNode::init(const std::string &master_url, const std::string &host_url, const std::string &topic_name) {
 	std::map<std::string,std::string> remappings;
 	remappings["__master"] = master_url;
 	remappings["__hostname"] = host_url;
 	ros::init(remappings,"add_two_ints_client");
+	if ( ! ros::master::check() ) {
+		return false;
+	}
 	ros::start(); // our node handles go out of scope, so we want to control shutdown explicitly.
     ros::NodeHandle n;
-    add_client = n.serviceClient<eros_qt_tutorials::TwoInts>("add_two_ints");
+    add_client = n.serviceClient<qt_tutorials::TwoInts>("add_two_ints");
 	start();
+	return true;
 }
 
 void QNode::run() {
@@ -56,7 +64,7 @@ void QNode::run() {
 	int last_sum = 0;
 	int count = 1;
 	while( ros::ok() ) {
-		eros_qt_tutorials::TwoInts srv;
+		qt_tutorials::TwoInts srv;
 		srv.request.a = count;
 		srv.request.b = last_sum;
 		if ( add_client.call(srv) ) {

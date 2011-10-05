@@ -34,30 +34,38 @@ QNode::~QNode() {
 	wait();
 }
 
-void QNode::init(const std::string &topic_name) {
+bool QNode::init(const std::string &topic_name) {
 	ros::init(init_argc,init_argv,"add_two_ints_server");
+	if ( ! ros::master::check() ) {
+		return false;
+	}
 	ros::start(); // our node handles go out of scope, so we want to control shutdown explicitly.
     ros::NodeHandle n;
     add_server = n.advertiseService("add_two_ints", &QNode::add, this);
 	start();
+	return true;
 }
 
-void QNode::init(const std::string &master_url, const std::string &host_url, const std::string &topic_name) {
+bool QNode::init(const std::string &master_url, const std::string &host_url, const std::string &topic_name) {
 	std::map<std::string,std::string> remappings;
 	remappings["__master"] = master_url;
 	remappings["__hostname"] = host_url;
 	ros::init(remappings,"add_two_ints_server");
+	if ( ! ros::master::check() ) {
+		return false;
+	}
 	ros::start(); // our node handles go out of scope, so we want to control shutdown explicitly.
     ros::NodeHandle n;
     add_server = n.advertiseService("add_two_ints",&QNode::add,this);
 	start();
+	return true;
 }
 
 void QNode::run() {
 	ros::spin();
 }
 
-bool QNode::add(eros_qt_tutorials::TwoInts::Request  &req, eros_qt_tutorials::TwoInts::Response &res) {
+bool QNode::add(qt_tutorials::TwoInts::Request  &req, qt_tutorials::TwoInts::Response &res) {
 	res.sum = req.a + req.b;
 	ROS_INFO_STREAM(req.a << " + " << req.b << " = " << res.sum);
 

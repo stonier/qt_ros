@@ -1,13 +1,18 @@
 <package>
-  <description brief="qt_tutorials">
+  <description brief="Example qt tutorials, styled on roscpp_tutorials">
 
-     qt_tutorials
+     Example qt programs, generated from code similar to that used by the 
+     roscreate-qt-pkg script and styled on roscpp_tutorials.
 
   </description>
-  <author>Russel Stonier</author>
+  <author>Daniel Stonier</author>
   <license>BSD</license>
-  <review status="unreviewed" notes=""/>
+  <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/qt_tutorials</url>
+  <depend package="qt_build"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <rosdep name="qt4"/>
 
 </package>
 

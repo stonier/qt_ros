@@ -306,7 +306,9 @@
    </property>
   </action>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/images.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>action_Quit</sender>

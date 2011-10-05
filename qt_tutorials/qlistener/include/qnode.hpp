@@ -32,8 +32,8 @@ class QNode : public QThread {
 public:
 	QNode(int argc, char** argv );
 	~QNode();
-	void init(const std::string &topic_name);
-	void init(const std::string &master_url, const std::string &host_url, const std::string &topic_name);
+	bool init(const std::string &topic_name);
+	bool init(const std::string &master_url, const std::string &host_url, const std::string &topic_name);
 	void run();
 
 	void chatterCallback(const std_msgs::String::ConstPtr &msg);
