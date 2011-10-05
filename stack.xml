@@ -1,0 +1,12 @@
+<stack>
+  <description brief="Resources for qt usage with ros">
+    This stack provides templates, tutorials and other resources that assist
+    qt on ros development.
+  </description>
+  <author>Maintained by Daniel Stonier</author>
+  <license>BSD</license>  
+  <review status="experimental" notes=""/>
+  <url>http://ros.org/wiki/qt_ros</url>
+  <depend stack="ros" />
+  <depend stack="ros_comm" />
+</stack>
