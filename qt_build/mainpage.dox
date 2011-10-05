@@ -15,7 +15,7 @@ developing qt-ros packages.
 In your package's manifest.xml:
 
 @code
-<depend package="eros_build"/>
+<depend package="qt_build"/>
 @endcode
 
 Then in your package's CMakeLists.txt:
