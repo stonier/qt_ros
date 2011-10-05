@@ -2,25 +2,61 @@
 \mainpage
 \htmlinclude manifest.html
 
-\b qt_build is ... 
+@section Overview
 
-<!-- 
-Provide an overview of your package.
--->
+This package provides a cmake module which will simplify the cmake for 
+developing qt-ros packages.
 
 
-\section codeapi Code API
+@section Usage
 
-<!--
-Provide links to specific auto-generated API documentation within your
-package that is of particular interest to a reader. Doxygen will
-document pretty much every part of your code, so do your best here to
-point the reader to the actual API.
+@section Rosbuild
 
-If your codebase is fairly large or has different sets of APIs, you
-should use the doxygen 'group' tag to keep these APIs together. For
-example, the roscpp documentation has 'libros' group.
--->
+In your package's manifest.xml:
 
+@code
+<depend package="eros_build"/>
+@endcode
+
+Then in your package's CMakeLists.txt:
+
+@code
+# Setup
+include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+rosbuild_init()
+rosbuild_include(qt_build qt-ros)
+
+# Call any of qt-ros' api, e.g.
+rosbuild_prepare_qt4(QtCore QtGui QtNetwork)
+@endcode
+
+@section Rosbuild2
+
+Todo
+
+@section cmakeApi CMake Api
+
+There is currently only one module, qt-ros.cmake and it only has
+on cmake function that is public:  
+
+- rosbuild_prepare_qt4( LIST_OF_COMPONENTS )
+
+where the list of components is a space separated list drawn from the 
+available qt components that you may have installed. For ros packages, 
+you'll typically be interested in one of the following components
+
+QtCore, QtGui, QtMain, QtNetwork, QtOpengl, QtSql, QtSvg, 
+QtDbus, QtScript, QtWebkit, QtXml, QtXmlPatterns, QtPhonon 
+
+This function is mostly a wrapper around the FindQt4 module with some help
+to define locations of various resources (such as qt-built ui headers). It 
+also includes some magic to help it work with the mingw cross compiler
+until the FindQt4 module is updated.
+
+@section Notes
+
+The arguments to the rosbuild_link_qt4 macro is rather simplified. It could
+be written to take exactly the same arguments as the include_package(Qt4 ...) call
+would make - that will be added if there is a need for it.
 
 */

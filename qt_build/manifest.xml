@@ -1,13 +1,19 @@
 <package>
-  <description brief="qt_build">
-
-     qt_build
-
+  <description brief="Resources for building qt-ros applications">
+     
+	Currently just maintains a cmake api for simplifying the building
+	of qt apps within the ros framework.
+	
   </description>
-  <author>Russel Stonier</author>
+  <author>Daniel Stonier</author>
   <license>BSD</license>
-  <review status="unreviewed" notes=""/>
+  <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/qt_build</url>
+  
+  <depend package="rosbuild"/>
+  <export>
+    <rosbuild cmake_directory="${prefix}"/>
+  </export>
 
 </package>
 
