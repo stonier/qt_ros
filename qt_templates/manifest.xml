@@ -1,0 +1,14 @@
+<package>
+  <description brief="qt_templates">
+
+     qt_templates
+
+  </description>
+  <author>Russel Stonier</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qt_templates</url>
+
+</package>
+
+

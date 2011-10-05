@@ -1,0 +1,14 @@
+<package>
+  <description brief="qt_tutorials">
+
+     qt_tutorials
+
+  </description>
+  <author>Russel Stonier</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qt_tutorials</url>
+
+</package>
+
+

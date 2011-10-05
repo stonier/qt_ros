@@ -1,0 +1,14 @@
+<package>
+  <description brief="qt_cmake">
+
+     qt_cmake
+
+  </description>
+  <author>Russel Stonier</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/qt_cmake</url>
+
+</package>
+
+
