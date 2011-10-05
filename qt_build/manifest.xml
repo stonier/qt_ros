@@ -1,13 +1,13 @@
 <package>
-  <description brief="qt_cmake">
+  <description brief="qt_build">
 
-     qt_cmake
+     qt_build
 
   </description>
   <author>Russel Stonier</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/qt_cmake</url>
+  <url>http://ros.org/wiki/qt_build</url>
 
 </package>
 
