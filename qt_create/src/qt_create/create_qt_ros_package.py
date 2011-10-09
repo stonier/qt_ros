@@ -18,6 +18,7 @@ def get_qt_text_templates(package):
     templates['mainpage.dox'] = read_template(os.path.join(template_dir,'mainpage.dox'))
     templates['Makefile'] = read_template(os.path.join(template_dir,'Makefile'))
     templates['CMakeLists.txt'] = read_template(os.path.join(template_dir,'CMakeLists.txt'))
+    templates['rosbuild.cmake'] = read_template(os.path.join(template_dir,'rosbuild.cmake'))
     templates['manifest.xml'] = read_template(os.path.join(template_dir,'manifest.xml'))
     templates[os.path.join('ui','main_window.ui')] = read_template(os.path.join(template_dir,'ui','main_window.ui'))
     templates[os.path.join('src','main.cpp')] = read_template(os.path.join(template_dir,'src','main.cpp'))
