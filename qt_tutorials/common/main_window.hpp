@@ -1,12 +1,12 @@
 /**
- * @file /include/eros_qtalker/main_window.hpp
+ * @file common/main_window.hpp
  *
  * @brief Qt based gui for eros_qtalker.
  *
  * @date November 2010
  **/
-#ifndef eros_qtalker_MAIN_WINDOW_H
-#define eros_qtalker_MAIN_WINDOW_H
+#ifndef QTUTORIALS_MAIN_WINDOW_H
+#define QTUTORIALS_MAIN_WINDOW_H
 
 /*****************************************************************************
 ** Includes
@@ -52,4 +52,4 @@ private:
     QNode qnode;
 };
 
-#endif // eros_qtalker_MAIN_WINDOW_H
+#endif // QTUTORIALS_MAIN_WINDOW_H
