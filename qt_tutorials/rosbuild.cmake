@@ -4,20 +4,18 @@ include(${CMAKE_CURRENT_BINARY_DIR}/package.cmake)
 # Qt Environment
 ##############################################################################
 
-#rosbuild_include(eros_build eros_build_utilities)
-include(qt.cmake)
-eros_prepare_qt4(QtCore QtGui) # Add the appropriate components here
+# rosbuild_include does not work in rosbuild2 (no rospack assumption)
+# but we do have the source directories scanned by toplevel.cmake
+# rosbuild_include(qt_build qt-ros)
+include(${qt_build_SOURCE_DIR}/qt-ros.cmake)
 
-##############################################################################
-# Comms
-##############################################################################
-
-#rosbuild_gensrv()
+rosbuild_prepare_qt4(QtCore QtGui)
 
 ##############################################################################
 # Subprojects
 ##############################################################################
 
+add_subdirectory(common)
 add_subdirectory(qtalker)
 add_subdirectory(qlistener)
 add_subdirectory(qadd_server)
