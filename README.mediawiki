@@ -1,0 +1,15 @@
+= Qt-Ros =
+
+Includes templates and create scripts for quickly developing qt-based ros packages.
+
+* roscreate-qt-pkg for quickly templating a qt-ros package.
+* Includes a master chooser.
+* Rosbuild and rosbuild2 supported.
+
+= Roadmap =
+
+* Check if we still need cmake support for mingw's static builds.
+* Support more templates.
+* Spin off into a separate python module.
+* QDesigner elements.
+
