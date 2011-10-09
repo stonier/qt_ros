@@ -13,18 +13,19 @@ from qt_create.core import read_template
 from qt_create.core import instantiate_template
 
 def get_qt_text_templates(package):
+    template_dir = os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros')
     templates = {}
-    templates['mainpage.dox'] = read_template(os.path.join(roslib.packages.get_pkg_dir('roscreate'),'mainpage.tmpl'))
-    templates['Makefile'] = read_template(os.path.join(roslib.packages.get_pkg_dir('roscreate'),'Makefile.tmpl'))
-    templates['CMakeLists.txt'] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','CMakeLists.txt'))
-    templates['manifest.xml'] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','manifest.xml'))
-    templates[os.path.join('ui','main_window.ui')] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','ui','main_window.ui'))
-    templates[os.path.join('src','main.cpp')] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','src','main.cpp'))
-    templates[os.path.join('src','main_window.cpp')] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','src','main_window.cpp'))
-    templates[os.path.join('src','qnode.cpp')] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','src','qnode.cpp'))
-    templates[os.path.join('resources','images.qrc')] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','resources','images.qrc'))
-    templates[os.path.join('include',package,'main_window.hpp')] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','include','PACKAGE_NAME','main_window.hpp'))
-    templates[os.path.join('include',package,'qnode.hpp')] = read_template(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','include','PACKAGE_NAME','qnode.hpp'))
+    templates['mainpage.dox'] = read_template(os.path.join(template_dir,'mainpage.dox'))
+    templates['Makefile'] = read_template(os.path.join(template_dir,'Makefile'))
+    templates['CMakeLists.txt'] = read_template(os.path.join(template_dir,'CMakeLists.txt'))
+    templates['manifest.xml'] = read_template(os.path.join(template_dir,'manifest.xml'))
+    templates[os.path.join('ui','main_window.ui')] = read_template(os.path.join(template_dir,'ui','main_window.ui'))
+    templates[os.path.join('src','main.cpp')] = read_template(os.path.join(template_dir,'src','main.cpp'))
+    templates[os.path.join('src','main_window.cpp')] = read_template(os.path.join(template_dir,'src','main_window.cpp'))
+    templates[os.path.join('src','qnode.cpp')] = read_template(os.path.join(template_dir,'src','qnode.cpp'))
+    templates[os.path.join('resources','images.qrc')] = read_template(os.path.join(template_dir,'resources','images.qrc'))
+    templates[os.path.join('include',package,'main_window.hpp')] = read_template(os.path.join(template_dir,'include','PACKAGE_NAME','main_window.hpp'))
+    templates[os.path.join('include',package,'qnode.hpp')] = read_template(os.path.join(template_dir,'include','PACKAGE_NAME','qnode.hpp'))
     return templates
 
 def create_qt_package(package, depends):
@@ -50,7 +51,8 @@ def create_qt_package(package, depends):
         finally:
             f.close()
     # Qt binary files
-    shutil.copy(os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros','resources','images','icon.png'),
+    template_dir = os.path.join(roslib.packages.get_pkg_dir('qt_create'),'templates','qt-ros')
+    shutil.copy(os.path.join(template_dir,'resources','images','icon.png'),
                 os.path.join(os.path.abspath(package),'resources','images','icon.png'))
     
 
