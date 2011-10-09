@@ -34,8 +34,7 @@ public:
 	void run();
 	void ros_comms_init();
 private:
-	bool add(qt_tutorials::TwoInts::Request  &req, qt_tutorials::TwoInts::Response &res);
-	ros::ServiceServer add_server;
+	ros::ServiceClient add_client;
 };
 
 #endif /* QADD_NODE_HPP_ */

@@ -11,7 +11,7 @@
 
 #include <QtGui>
 #include <QApplication>
-#include "qadd_main_window.hpp"
+#include "../common/main_window.hpp"
 #include "qadd.hpp"
 
 /*****************************************************************************
@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
     **********************/
     QApplication app(argc, argv);
     QAdd qadd(argc,argv);
-    QAddMainWindow w(&qadd);
+    MainWindow w(&qadd);
     w.show();
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
     int result = app.exec();

@@ -32,7 +32,7 @@ public:
 	QAdd(int argc, char** argv);
 	virtual ~QAdd() {}
 	void run();
-	void ros_comms_init(const std::string &name);
+	void ros_comms_init();
 private:
 	bool add(qt_tutorials::TwoInts::Request  &req, qt_tutorials::TwoInts::Response &res);
 	ros::ServiceServer add_server;

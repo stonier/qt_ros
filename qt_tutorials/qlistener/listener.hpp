@@ -31,7 +31,7 @@ public:
 	Listener(int argc, char** argv);
 	virtual ~Listener() {}
 	void run();
-	void ros_comms_init(const std::string &name);
+	void ros_comms_init();
 private:
 	void chatterCallback(const std_msgs::String::ConstPtr &msg);
 	ros::Subscriber chatter_subscriber;

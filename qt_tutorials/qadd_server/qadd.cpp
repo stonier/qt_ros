@@ -24,10 +24,11 @@ QAdd::QAdd(int argc, char** argv ) :
 	QNode(argc,argv,"qadd_server")
 	{}
 
-void QAdd::ros_comms_init(const std::string &name) {
+void QAdd::ros_comms_init() {
     ros::NodeHandle n;
     add_server = n.advertiseService("add_two_ints", &QAdd::add, this);
 }
+
 bool QAdd::add(qt_tutorials::TwoInts::Request  &req, qt_tutorials::TwoInts::Response &res) {
 	res.sum = req.a + req.b;
 	ROS_INFO_STREAM(req.a << " + " << req.b << " = " << res.sum);

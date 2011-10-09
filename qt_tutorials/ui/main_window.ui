@@ -170,26 +170,6 @@
             </widget>
            </item>
            <item row="4" column="0" colspan="2">
-            <widget class="QLabel" name="label_3">
-             <property name="frameShape">
-              <enum>QFrame::StyledPanel</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Raised</enum>
-             </property>
-             <property name="text">
-              <string>Topic</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="0" colspan="2">
-            <widget class="QLineEdit" name="line_edit_topic">
-             <property name="text">
-              <string>/chatter</string>
-             </property>
-            </widget>
-           </item>
-           <item row="6" column="0" colspan="2">
             <widget class="QCheckBox" name="checkbox_use_environment">
              <property name="layoutDirection">
               <enum>Qt::RightToLeft</enum>
@@ -199,7 +179,7 @@
              </property>
             </widget>
            </item>
-           <item row="7" column="0" colspan="2">
+           <item row="5" column="0" colspan="2">
             <widget class="QCheckBox" name="checkbox_remember_settings">
              <property name="layoutDirection">
               <enum>Qt::RightToLeft</enum>
@@ -209,7 +189,7 @@
              </property>
             </widget>
            </item>
-           <item row="8" column="0">
+           <item row="6" column="0">
             <spacer name="horizontalSpacer">
              <property name="orientation">
               <enum>Qt::Horizontal</enum>
@@ -222,7 +202,7 @@
              </property>
             </spacer>
            </item>
-           <item row="8" column="1">
+           <item row="6" column="1">
             <widget class="QPushButton" name="button_connect">
              <property name="enabled">
               <bool>true</bool>

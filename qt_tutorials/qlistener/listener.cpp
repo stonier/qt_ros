@@ -24,9 +24,9 @@ Listener::Listener(int argc, char** argv ) :
 	QNode(argc,argv,"qlistener")
 	{}
 
-void Listener::ros_comms_init(const std::string &name) {
+void Listener::ros_comms_init() {
 	ros::NodeHandle n;
-	chatter_subscriber = n.subscribe(name, 1000, &Listener::chatterCallback, this);
+	chatter_subscriber = n.subscribe("chatter", 1000, &Listener::chatterCallback, this);
 }
 
 void Listener::chatterCallback(const std_msgs::String::ConstPtr &msg) {
@@ -40,4 +40,6 @@ void Listener::chatterCallback(const std_msgs::String::ConstPtr &msg) {
 
 void Listener::run() {
 	ros::spin();
+    std::cout << "Ros shutdown, proceeding to close the gui." << std::endl;
+    emit rosShutdown(); // used to signal the gui for a shutdown (useful to roslaunch)
 }

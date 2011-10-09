@@ -11,7 +11,7 @@
 
 #include <QtGui>
 #include <QApplication>
-#include "listener_main_window.hpp"
+#include "../common/main_window.hpp"
 #include "listener.hpp"
 
 /*****************************************************************************
@@ -25,7 +25,7 @@ int main(int argc, char **argv) {
     **********************/
     QApplication app(argc, argv);
     Listener listener(argc,argv);
-    ListenerMainWindow w(&listener);
+    MainWindow w(&listener);
     w.show();
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
     int result = app.exec();

@@ -39,6 +39,7 @@ rosbuild_gensrv()
 # Subprojects
 ##############################################################################
 
+add_subdirectory(common)
 add_subdirectory(qtalker)
 add_subdirectory(qlistener)
 add_subdirectory(qadd_server)

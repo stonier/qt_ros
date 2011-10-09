@@ -1,5 +1,5 @@
 /**
- * @file /src/main.cpp
+ * @file /qtalker/main.cpp
  *
  * @brief Qt based gui.
  *
@@ -11,7 +11,8 @@
 
 #include <QtGui>
 #include <QApplication>
-#include "../include/main_window.hpp"
+#include "../common/main_window.hpp"
+#include "talker.hpp"
 
 /*****************************************************************************
 ** Main
@@ -23,7 +24,8 @@ int main(int argc, char **argv) {
     ** Qt
     **********************/
     QApplication app(argc, argv);
-    MainWindow w(argc,argv);
+    Talker talker(argc,argv);
+    MainWindow w(&talker);
     w.show();
     app.connect(&app, SIGNAL(lastWindowClosed()), &app, SLOT(quit()));
     int result = app.exec();

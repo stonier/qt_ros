@@ -13,7 +13,7 @@
 *****************************************************************************/
 
 #include <QtGui/QMainWindow>
-#include "qtalker/ui_main_window.h"
+#include "common/ui_main_window.h"
 #include "qnode.hpp"
 
 /*****************************************************************************
@@ -26,7 +26,7 @@ class MainWindow : public QMainWindow {
 Q_OBJECT
 
 public:
-	MainWindow(int argc, char** argv, QWidget *parent = 0);
+	MainWindow(QNode *node, QWidget *parent = 0);
 	~MainWindow();
 
 	void ReadSettings(); // Load up qt program settings at startup
@@ -49,7 +49,7 @@ public slots:
 
 private:
     Ui::MainWindowDesign ui;
-    QNode qnode;
+    QNode *qnode;
 };
 
 #endif // QTUTORIALS_MAIN_WINDOW_H
