@@ -34,6 +34,7 @@ public:
 
 	bool on_init();
 	bool on_init(const std::string &master_url, const std::string &host_url);
+	void shutdown();
 	virtual void run() = 0;
 
 	QStringListModel* loggingModel() { return &logging; }

@@ -28,8 +28,17 @@ QNode::QNode(int argc, char** argv, const std::string &name ) :
 	{}
 
 QNode::~QNode() {
-	ros::shutdown(); // calling explicitly because we called ros::start()
-	std::cout << "Waiting for ros thread to finish." << std::endl;
+	shutdown();
+}
+/**
+ * This is called by the qt application to stop the ros node before the
+ * qt app closes.
+ */
+void QNode::shutdown() {
+    if(ros::isStarted()) {
+      ros::shutdown(); // explicitly needed since we use ros::start();
+      ros::waitForShutdown();
+    }
 	wait();
 }
 

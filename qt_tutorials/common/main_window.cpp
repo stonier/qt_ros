@@ -154,6 +154,7 @@ void MainWindow::WriteSettings() {
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+	qnode->shutdown();
 	WriteSettings();
 	QMainWindow::closeEvent(event);
 }
