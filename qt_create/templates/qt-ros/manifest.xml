@@ -13,17 +13,10 @@
   <rosdep name="qt4"/>
 
   <!-- rosbuild1 -->
-    <depend package="qt_build"/>
-    <depend package="roscpp"/>
-  <!-- /rosbuild1 -->
+  <depend package="qt_build"/>
+  <depend package="roscpp"/>
   
   <rosbuild2>
-    <!-- 
-      There is no cmake_directory w/ rosbuild_include 
-      in rosbuild2 yet (no rospack). Instead, we handle 
-      discovery of the cmake module via rosbuild.cmake 
-      instead. 
-    -->
     <depend package="qt_build"/>
     <depend package="roscpp"/>
   </rosbuild2>
