@@ -10,6 +10,10 @@ include(${CMAKE_CURRENT_BINARY_DIR}/package.cmake)
 include(${qt_build_SOURCE_DIR}/qt-ros.cmake)
 
 rosbuild_prepare_qt4(QtCore QtGui)
+if(NOT QT4)
+  message(STATUS " - qt_tutorial [no qt4]")
+  return()
+endif()
 
 ##############################################################################
 # Subprojects
