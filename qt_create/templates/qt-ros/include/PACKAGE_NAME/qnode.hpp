@@ -36,7 +36,7 @@ class QNode : public QThread {
     Q_OBJECT
 public:
 	QNode(int argc, char** argv );
-	~QNode();
+	virtual ~QNode();
 	bool init();
 	bool init(const std::string &master_url, const std::string &host_url);
 	void run();
