@@ -1,5 +1,8 @@
 # The following only works on ubuntu or similar linux operating systems.
 
+all:
+	@echo "Nothin to see here dude."
+
 RQP=roscreate-qt-pkg
 RQP_PATH=$(shell rospack find qt_create)/scripts/$(RQP)
 
