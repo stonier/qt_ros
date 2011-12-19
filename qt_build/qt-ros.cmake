@@ -45,8 +45,11 @@ endmacro()
 #   - turns off -DQT_DLL if it's accidentally left on.
 #   - checks to see if there are .prl's which can fill out the lib dependencies.
 #
-# Sets QT4 to QT4-NOTFOUND if it failed to find Qt4 or all of the specified 
-# components.
+# Sets QT_FOUND and QT4_FOUND if QT/QT4 was found.
+# Also sets QT_XXX_FOUND if the specific component (XXX) was found.
+#
+# See the official FindQt4.cmake module for more information (usually in 
+# /usr/share/cmake-2.8/Modules/FindQt4.cmake 
 #
 macro(rosbuild_prepare_qt4)
     if ( ${ARGC} GREATER 0 )
@@ -65,7 +68,7 @@ macro(rosbuild_prepare_qt4)
     endif()
 
     if(NOT QT_QMAKE_EXECUTABLE)
-      set(QT4 QT4-NOTFOUND)
+      #set(QT4_FOUND QT4-NOTFOUND) # Do we actually need this?
     else()
         # This is needed on my ubuntu (cmake 2.8.0), but not on gentoo (cmake 2.8.1)
         # Probably later this can be dropped as it is done in 2.8.1+
