@@ -9,5 +9,4 @@
   <url>http://ros.org/wiki/qt_ros</url>
   <depend stack="ros" /> <!-- rosbuild -->
   <depend stack="ros_comm" /> <!-- std_msgs, roscpp -->
-
 </stack>

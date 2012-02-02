@@ -1,46 +1,58 @@
-##############################################################################
-# Rosbuild2
-##############################################################################
+project(qt_tutorials)
+find_package(catkin)
+# These find_package calls setup ROS_INCLUDE_DIRS and ROS_LIBRARIES and 
+# all the component variables too (e.g. roscpp_INCLUDE_DIR?)
+find_package(ROS REQUIRED COMPONENTS qt_build std_msgs roscpp)
 
-if(ROSBUILD)
-  include(rosbuild.cmake OPTIONAL)
-  return()
-endif()
-
-##############################################################################
-# CMake
-##############################################################################
-
-cmake_minimum_required(VERSION 2.4.6)
+include_directories(${ROS_INCLUDE_DIRS})
 
 ##############################################################################
 # Ros Environment Configuration
 ##############################################################################
 
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
-rosbuild_init()
-set(CMAKE_VERBOSE_MAKEFILE TRUE)
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+#include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+#rosbuild_init()
+# set(CMAKE_VERBOSE_MAKEFILE TRUE)
+# set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 ##############################################################################
 # Qt Environment
 ##############################################################################
 
-rosbuild_include(qt_build qt-ros)
+# This is dan's qt cmake calls we have to replace
+
+include(${CMAKE_CURRENT_SOURCE_DIR}/../qt_build/qt-ros.cmake)
 rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
 
 ##############################################################################
 # Comms
 ##############################################################################
 
-rosbuild_gensrv()
+add_service_files(DIRECTORY srv FILES TwoInts.srv)
+generate_messages(DEPENDENCIES std_msgs)
 
 ##############################################################################
 # Subprojects
 ##############################################################################
 
-add_subdirectory(common)
-add_subdirectory(qtalker)
-add_subdirectory(qlistener)
-add_subdirectory(qadd_server)
-add_subdirectory(qadd_client)
+foreach(subdir
+    common
+    qtalker
+    qlistener
+    qadd_server
+    qadd_client
+    )
+  install(DIRECTORY ${subdir} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
+  add_subdirectory(${subdir})
+endforeach()
+
+install(FILES .cproject .gitignore .project rosbuild.cmake manifest.xml CMakeLists.txt
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials
+  )
+install(DIRECTORY resources DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
+install(DIRECTORY ui DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
+
+catkin_project(qt_tutorials
+  VERSION 0.0.0
+  )
+

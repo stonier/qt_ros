@@ -1,0 +1,13 @@
+Catkin-ProjectName: qt_ros
+Version: 0.1.2
+Description: This stack provides templates, tutorials and other resources that assist qt on ros development.
+Author: Daniel Stonier
+Maintainer: Daniel Stonier
+Homepage: http://ros.org/wiki/qt_ros
+
+Depends: catkin, std_msgs, ros_comm, qt4
+
+Catkin-CopyrightType:  willowgarage
+Catkin-DebRulesType: cmake
+#Catkin-ROS-Message-Generator: cpp
+

@@ -1,20 +1,11 @@
-##############################################################################
-# Rosbuild2
-##############################################################################
+project(qt_build)
+find_package(ROS COMPONENTS catkin)
 
-if(ROSBUILD)
-  include(rosbuild.cmake OPTIONAL)
-  return()
-endif()
+install(FILES .cproject .project qt-ros.cmake rosbuild.cmake manifest.xml CMakeLists.txt
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_build
+  )
 
-##############################################################################
-# Rosbuild1
-##############################################################################
+catkin_project(qt_build
+  VERSION 0.0.0
+  )
 
-cmake_minimum_required(VERSION 2.4.6)
-include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
-
-rosbuild_init()
-
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)

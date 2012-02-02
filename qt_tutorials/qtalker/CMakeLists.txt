@@ -15,5 +15,6 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINK
 # Binaries
 ##############################################################################
 
-rosbuild_add_executable(qtalker ${QT_SOURCES} ${QT_MOC_HPP})
+add_executable(qtalker ${QT_SOURCES} ${QT_MOC_HPP})
 target_link_libraries(qtalker qtutorials)
+install(TARGETS qtalker RUNTIME DESTINATION share/qt_tutorials/bin)
