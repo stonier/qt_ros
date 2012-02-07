@@ -1,8 +1,8 @@
 Catkin-ProjectName: qt_ros
 Version: 0.1.3
 Description: This stack provides templates, tutorials and other resources that assist qt on ros development.
-Author: Daniel Stonier
-Maintainer: Daniel Stonier
+Author: Daniel Stonier <d.stonier@gmail.com>
+Maintainer: Daniel Stonier <d.stonier@gmail.com>
 Homepage: http://ros.org/wiki/qt_ros
 
 Depends: catkin, std_msgs, ros_comm, qt4
