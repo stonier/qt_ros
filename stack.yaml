@@ -5,7 +5,7 @@ Author: Daniel Stonier <d.stonier@gmail.com>
 Maintainer: Daniel Stonier <d.stonier@gmail.com>
 Homepage: http://ros.org/wiki/qt_ros
 
-Depends: catkin, std_msgs, ros_comm, qt4
+Depends: catkin, std_msgs, ros_comm, libqt4-dev, qt4-dev-tools
 
 Catkin-CopyrightType:  willowgarage
 Catkin-DebRulesType: cmake
