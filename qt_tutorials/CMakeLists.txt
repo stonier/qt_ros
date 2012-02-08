@@ -2,7 +2,7 @@ project(qt_tutorials)
 find_package(catkin)
 # These find_package calls setup ROS_INCLUDE_DIRS and ROS_LIBRARIES and 
 # all the component variables too (e.g. roscpp_INCLUDE_DIR?)
-find_package(ROS REQUIRED COMPONENTS qt_build std_msgs roscpp)
+find_package(ROS REQUIRED COMPONENTS qt_build genmsg std_msgs roscpp)
 
 include_directories(${ROS_INCLUDE_DIRS})
 

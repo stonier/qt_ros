@@ -21,7 +21,8 @@ cmake_minimum_required(VERSION 2.8)
 
 project(ros_qt)
 
-find_package(catkin)
+find_package(catkin REQUIRED)
+find_package(genmsg REQUIRED)
 
 foreach(subdir
     qt_build
