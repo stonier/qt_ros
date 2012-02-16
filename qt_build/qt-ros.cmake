@@ -133,5 +133,6 @@ macro(rosbuild_prepare_qt4)
             endif()
         endif()
     endif()
+    ADD_DEFINITIONS(-DQT_NO_KEYWORDS)
 endmacro()
     

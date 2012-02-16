@@ -55,7 +55,7 @@ public:
 	QStringListModel* loggingModel() { return &logging_model; }
 	void log( const LogLevel &level, const std::string &msg);
 
-signals:
+Q_SIGNALS:
 	void loggingUpdated();
     void rosShutdown();
 
