@@ -20,9 +20,9 @@
 cmake_minimum_required(VERSION 2.8)
 
 project(ros_qt)
+find_package(ROS COMPONENTS catkin genmsg)
+catkin_stack()
 
-find_package(catkin REQUIRED)
-find_package(genmsg REQUIRED)
 
 foreach(subdir
     qt_build
@@ -32,6 +32,9 @@ foreach(subdir
   add_subdirectory(${subdir})
 endforeach()
 
+# install all manifests
+install_matching_to_share(manifest.xml)
+
 install(FILES stack.xml stack.yaml qt_ros_dev.rosinstall qt_ros.rosinstall README.mediawiki
-        DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_ros)
+        DESTINATION share/qt_ros)
 
