@@ -54,5 +54,5 @@ void QAdd::run() {
 		loop_rate.sleep();
 	}
 	std::cout << "Ros shutdown, proceeding to close the gui." << std::endl;
-	emit rosShutdown(); // used to signal the gui for a shutdown (useful to roslaunch)
+	Q_EMIT rosShutdown(); // used to signal the gui for a shutdown (useful to roslaunch)
 }

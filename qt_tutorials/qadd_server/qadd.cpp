@@ -45,5 +45,5 @@ bool QAdd::add(qt_tutorials::TwoInts::Request  &req, qt_tutorials::TwoInts::Resp
 void QAdd::run() {
 	ros::spin();
     std::cout << "Ros shutdown, proceeding to close the gui." << std::endl;
-    emit rosShutdown(); // used to signal the gui for a shutdown (useful to roslaunch)
+    Q_EMIT rosShutdown(); // used to signal the gui for a shutdown (useful to roslaunch)
 }

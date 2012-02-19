@@ -35,7 +35,7 @@ public:
 	void closeEvent(QCloseEvent *event); // Overloaded function
 	void showNoMasterMessage();
 
-public slots:
+public Q_SLOTS:
 	// Put automatically triggered slots here (because of connectSlotsByName())
 	// void on_button_enable_clicked(bool check); // example only
 	void on_actionAbout_triggered();

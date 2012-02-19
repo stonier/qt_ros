@@ -40,7 +40,7 @@ public:
 	QStringListModel* loggingModel() { return &logging; }
 	const std::string& nodeName() { return node_name; }
 
-signals:
+Q_SIGNALS:
 	void loggingUpdated();
 	void rosShutdown();
 
