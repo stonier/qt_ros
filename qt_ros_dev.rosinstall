@@ -1,5 +1,0 @@
-- git:
-    uri: git@github.com:stonier/qt_ros.git
-    local-name: qt_ros
-    version: master
-
