@@ -1,0 +1,9 @@
+/**
+\mainpage
+\htmlinclude manifest.html
+
+@section Overview
+
+Provies a roscreate script and a set of templates to simplify creation of 
+qt apps as ros packages.
+*/
