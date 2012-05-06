@@ -1,4 +1,5 @@
 <package>
+  <catkin/>
   <description brief="Example qt tutorials, styled on roscpp_tutorials">
 
      Example qt programs, generated from code similar to that used by the 
@@ -10,21 +11,9 @@
   <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/qt_tutorials</url>
   
-  <!-- rosbuild1 -->
-    <depend package="qt_build"/>
-    <depend package="roscpp"/>
-    <depend package="std_msgs"/>
-    <rosdep name="qt4"/>
-  <!-- /rosbuild1 -->
+  <depend package="qt_build"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <rosdep name="libqt4-dev"/>
   
-  <rosbuild2>
-    <depend package="qt_build"/>
-    <depend package="roscpp"/>
-    <depend package="std_msgs"/>
-    <rosdep name="qt4"/>
-    <srvs>srv/TwoInts.srv</srvs>
-  </rosbuild2>
-
 </package>
-
-

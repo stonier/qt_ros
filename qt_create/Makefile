@@ -1,15 +1,20 @@
-# The following only works on ubuntu or similar linux operating systems.
+# Other commands relevant for pip:
+# 
+#  python setup.py register
+#  python setup.py sdist upload
 
 all:
 	@echo "Nothin to see here dude."
 
-RQP=roscreate-qt-pkg
-RQP_PATH=$(shell rospack find qt_create)/scripts/$(RQP)
+build:
+	python setup.py build
 
 install:
-	@echo "Creating link /usr/local/bin/$(RQP) -> $(RQP_PATH)"
-	@sudo ln -sf $(PWD)/scripts/roscreate-qt-pkg /usr/local/bin
+	sudo python setup.py install
 
-uninstall:
-	@echo "Removing link /usr/local/bin/roscreate-qt-pkg"
-	@sudo rm -f /usr/local/bin/roscreate-qt-pkg
+distro:
+	python setup.py sdist
+
+clean:
+	rm -rf build
+

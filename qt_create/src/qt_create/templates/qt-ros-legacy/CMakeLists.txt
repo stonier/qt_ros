@@ -3,26 +3,32 @@
 ##############################################################################
 
 cmake_minimum_required(VERSION 2.4.6)
-# set(CMAKE_VERBOSE_MAKEFILE TRUE)
 
 ##############################################################################
-# Catkin
+# Ros Initialisation
 ##############################################################################
 
-project(%(package)s)
-find_package(catkin)
-catkin_project(%(package)s)
-find_package(ROS REQUIRED COMPONENTS qt_build genmsg roscpp)
+include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
+rosbuild_init()
 
-include_directories(${ROS_INCLUDE_DIRS})
+#set the default path for built executables to the "bin" directory
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
+#set the default path for built libraries to the "lib" directory
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+# Set the build type.  Options are:
+#  Coverage       : w/ debug symbols, w/o optimization, w/ code-coverage
+#  Debug          : w/ debug symbols, w/o optimization
+#  Release        : w/o debug symbols, w/ optimization
+#  RelWithDebInfo : w/ debug symbols, w/ optimization
+#  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
+#set(ROS_BUILD_TYPE Debug)
 
 ##############################################################################
 # Qt Environment
 ##############################################################################
 
-# Need to find qt_build here.
-
-include(${CMAKE_CURRENT_SOURCE_DIR}/../qt_build/qt-ros.cmake)
+rosbuild_include(qt_build qt-ros)
 rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
 
 ##############################################################################
@@ -47,8 +53,5 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINK
 # Binaries
 ##############################################################################
 
-add_executable(%(package)s ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP})
-target_link_libraries(%(package)s ${QT_LIBRARIES} ${ROS_LIBRARIES})
-install(TARGETS %(package)s RUNTIME DESTINATION bin)
-
-#install(DIRECTORY ${subdir} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
+rosbuild_add_executable(%(package)s ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP})
+target_link_libraries(%(package)s ${QT_LIBRARIES})

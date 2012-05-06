@@ -1,4 +1,5 @@
 <package>
+  <catkin/>
   <description brief="Resources for building qt-ros applications">
      
 	Currently just maintains a cmake api for simplifying the building
@@ -10,15 +11,11 @@
   <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/qt_build</url>
 
-  <!-- rosbuild1 -->  
-    <depend package="rosbuild"/>
-    <export>
-      <rosbuild cmake_directory="${prefix}"/>
-    </export>
-  <!-- /rosbuild1 -->  
+  <!-- 
+  <depend package="roslang"/>
+  <export>
+    <roslang cmake="${prefix}/qt-ros.cmake"/>
+  </export>
+  -->
 
-  <rosbuild2>
-    <!-- no cmake_directory export w/ rosbuild_include in rosbuild2 yet (no rospack) -->
-  </rosbuild2>
 </package>
-

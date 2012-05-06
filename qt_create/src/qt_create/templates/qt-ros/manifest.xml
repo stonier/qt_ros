@@ -7,13 +7,11 @@
   </description>
   <author>%(author)s</author>
   <license>BSD</license>
-  <review status="unreviewed" notes=""/>
+  <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/%(package)s</url>
 %(depends)s
 
-  <rosdep name="qt4"/>
-
-  <!-- rosbuild1 -->
+  <rosdep name="libqt4-dev"/>
   <depend package="qt_build"/>
   <depend package="roscpp"/>
  

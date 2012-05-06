@@ -10,8 +10,6 @@ include_directories(${ROS_INCLUDE_DIRS})
 # Ros Environment Configuration
 ##############################################################################
 
-#include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
-#rosbuild_init()
 # set(CMAKE_VERBOSE_MAKEFILE TRUE)
 # set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
@@ -19,9 +17,8 @@ include_directories(${ROS_INCLUDE_DIRS})
 # Qt Environment
 ##############################################################################
 
-# This is dan's qt cmake calls we have to replace
-
-include(${CMAKE_CURRENT_SOURCE_DIR}/../qt_build/qt-ros.cmake)
+# this comes from qt_build's qt-ros.cmake which is automatically 
+# included via the dependency call in manifest.xml
 rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
 
 ##############################################################################

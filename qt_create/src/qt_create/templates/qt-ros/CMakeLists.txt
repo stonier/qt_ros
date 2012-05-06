@@ -1,15 +1,27 @@
-include(${CMAKE_CURRENT_BINARY_DIR}/package.cmake)
+##############################################################################
+# CMake
+##############################################################################
+
+# set(CMAKE_VERBOSE_MAKEFILE TRUE)
+
+##############################################################################
+# Catkin
+##############################################################################
+
+project(%(package)s)
+find_package(catkin)
+catkin_project(%(package)s)
+find_package(ROS REQUIRED COMPONENTS qt_build roscpp)
+
+include_directories(${ROS_INCLUDE_DIRS})
 
 ##############################################################################
 # Qt Environment
 ##############################################################################
 
-# rosbuild_include does not work in rosbuild2 (no rospack assumption)
-# but we do have the source directories scanned by toplevel.cmake
-# rosbuild_include(qt_build qt-ros)
-include(${qt_build_SOURCE_DIR}/qt-ros.cmake)
-
-rosbuild_prepare_qt4(QtCore QtGui)
+# this comes from qt_build's qt-ros.cmake which is automatically 
+# included via the dependency call in manifest.xml
+rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
 
 ##############################################################################
 # Sections
@@ -33,5 +45,7 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINK
 # Binaries
 ##############################################################################
 
-rosbuild_add_executable(%(package)s ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP})
-target_link_libraries(%(package)s ${QT_LIBRARIES})
+add_executable(%(package)s ${QT_SOURCES} ${QT_RESOURCES_CPP} ${QT_FORMS_HPP} ${QT_MOC_HPP})
+target_link_libraries(%(package)s ${QT_LIBRARIES} ${ROS_LIBRARIES})
+install(TARGETS %(package)s RUNTIME DESTINATION bin)
+
