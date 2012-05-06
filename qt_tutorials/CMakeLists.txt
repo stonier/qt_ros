@@ -52,7 +52,5 @@ install(FILES .cproject .gitignore .project rosbuild.cmake manifest.xml CMakeLis
 install(DIRECTORY resources DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
 install(DIRECTORY ui DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
 
-catkin_project(qt_tutorials
-  VERSION 0.0.0
-  )
+catkin_project(qt_tutorials)
 
