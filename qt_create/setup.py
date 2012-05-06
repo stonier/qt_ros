@@ -3,14 +3,14 @@ from distutils.core import setup
 import sys
 sys.path.insert(0, 'src')
 
-from qt_create import __version__
+from roscreate_qt_pkg import __version__
 
-setup(name='qt_create',
+setup(name='roscreate_qt_pkg',
       version= __version__,
-      packages=['qt_create'],
+      packages=['roscreate_qt_pkg'],
       package_dir = {'':'src'},
       scripts = ["scripts/roscreate-qt-pkg","scripts/roscreate-qt-legacy-pkg"],
-      package_data = {'qt_create': [
+      package_data = {'roscreate_qt_pkg': [
            'templates/qt-ros/CMakeLists.txt',
            'templates/qt-ros/src/*.cpp',
            'templates/qt-ros/ui/*.ui',
@@ -32,16 +32,15 @@ setup(name='qt_create',
            ]},
       author = "Daniel Stonier",
       author_email = "d.stonier@gmail.com",
-      url = "https://github.com/stonier/qt_ros",
+      url = "http://pypi.python.org/pypi/roscreate-qt/",
       download_url = "https://github.com/stonier/qt_ros.git",
-      keywords = ["ROS"],
+      keywords = ["RoS"],
       classifiers = [
         "Programming Language :: Python",
+        "Framework :: RoS",
         "License :: OSI Approved :: BSD License" ],
       description = "Creates qt package templates for RoS",
-      long_description = """\
-Uses a template to automatically generate a qt-ros based package.
-""",
+      long_description = open('README.txt').read(),
       license = "BSD"
       )
 

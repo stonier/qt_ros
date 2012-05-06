@@ -23,5 +23,5 @@ upload:
 	python setup.py sdist upload
 
 clean:
-	rm -rf build dist
+	rm -rf build dist MANIFEST
 
