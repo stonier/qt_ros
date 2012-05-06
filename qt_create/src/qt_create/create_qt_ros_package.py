@@ -57,7 +57,7 @@ def create_qt_package(package, depends):
                 os.path.join(os.path.abspath(package),'resources','images','icon.png'))
     
 
-def main(catkin=True):
+def main():
     from optparse import OptionParser
     parser = OptionParser(usage="usage: %prog <package-name> [dependencies...]")
     options, args = parser.parse_args()
@@ -76,7 +76,7 @@ def main(catkin=True):
             sys.exit(1)
     depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
 
-    create_qt_package(package, depends, catkin )
+    create_qt_package(package, depends )
     print "\nPlease edit %s/manifest.xml and mainpage.dox to finish creating your package"%package
 
 if __name__ == "__main__":
