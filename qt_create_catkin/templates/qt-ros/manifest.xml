@@ -1,4 +1,5 @@
 <package>
+  <catkin/>
   <description brief="%(brief)s">
 
      %(description)s
@@ -15,10 +16,5 @@
   <!-- rosbuild1 -->
   <depend package="qt_build"/>
   <depend package="roscpp"/>
-  
-  <rosbuild2>
-    <depend package="qt_build"/>
-    <depend package="roscpp"/>
-  </rosbuild2>
-  
+ 
 </package>
