@@ -11,15 +11,11 @@
   <review status="experimental" notes=""/>
   <url>http://ros.org/wiki/qt_build</url>
 
-  <!--
+  <!-- 
   <depend package="roslang"/>
   <export>
     <roslang cmake="${prefix}/qt-ros.cmake"/>
   </export>
   -->
-  <!-- following http://www.ros.org/wiki/rosbuild/CMakeLists#rosbuild_include -->
-  <depend package="rosbuild"/>
-  <export>
-    <rosbuild cmake_directory="${prefix}"/>
-  </export>
+
 </package>
