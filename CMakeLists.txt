@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(ros_qt)
+project(qt_ros)
 find_package(ROS COMPONENTS catkin genmsg)
 catkin_stack()
 
