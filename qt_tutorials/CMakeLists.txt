@@ -43,7 +43,7 @@ foreach(subdir
   add_subdirectory(${subdir})
 endforeach()
 
-install(FILES .cproject .gitignore .project rosbuild.cmake manifest.xml CMakeLists.txt
+install(FILES manifest.xml CMakeLists.txt
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials
   )
 install(DIRECTORY resources DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
