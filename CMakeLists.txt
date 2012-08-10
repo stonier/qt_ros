@@ -9,7 +9,6 @@ foreach(subdir
     qt_build
     qt_create
     qt_tutorials
-    qfoo 
     )
   add_subdirectory(${subdir})
 endforeach()
