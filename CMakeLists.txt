@@ -35,6 +35,6 @@ endforeach()
 # install all manifests
 install_matching_to_share(manifest.xml)
 
-install(FILES stack.xml stack.yaml qt_ros_dev.rosinstall qt_ros.rosinstall README.mediawiki
+install(FILES stack.xml stack.yaml qt_ros.rosinstall README.mediawiki
         DESTINATION share/qt_ros)
 
