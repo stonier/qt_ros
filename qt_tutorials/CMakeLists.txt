@@ -43,11 +43,10 @@ foreach(subdir
   add_subdirectory(${subdir})
 endforeach()
 
-install(FILES manifest.xml CMakeLists.txt
+install(FILES .cproject .gitignore .project manifest.xml CMakeLists.txt
   DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials
   )
 install(DIRECTORY resources DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
 install(DIRECTORY ui DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
 
 catkin_project(qt_tutorials)
-
