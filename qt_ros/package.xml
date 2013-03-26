@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>qt_ros</name>
+  <version>0.1.4</version>
+  <description>
+    Simple qt cmake build tools and master-chooser style application template.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+  <url type="website">http://www.ros.org/wiki/qt_ros</url>
+  <url type="repository">https://github.com/stonier/qt_ros.git</url>
+  <url type="bugtracker">https://github.com/stonier/qt_ros/issues</url>
+  <author>Daniel Stonier</author>
+
+  <run_depend>qt_build</run_depend>
+  <run_depend>qt_create</run_depend>
+  <run_depend>qt_tutorials</run_depend>
+  
+  <export>
+    <metapackage/>
+  </export>
+</package>
+
