@@ -11,12 +11,6 @@ find_package(catkin REQUIRED COMPONENTS qt_build message_generation std_msgs ros
 include_directories(${catkin_INCLUDE_DIRS})
 
 ##############################################################################
-# Ros Environment Configuration
-##############################################################################
-
-# set(CMAKE_VERBOSE_MAKEFILE TRUE)
-
-##############################################################################
 # Qt Environment
 ##############################################################################
 
@@ -44,13 +38,14 @@ foreach(subdir
     qadd_server
     qadd_client
     )
-  install(DIRECTORY ${subdir} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
+  #install(DIRECTORY ${subdir} DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
   add_subdirectory(${subdir})
 endforeach()
 
-install(FILES manifest.xml CMakeLists.txt
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials
-  )
+##############################################################################
+# Optional Installs - these aren't really necessary
+##############################################################################
+
 install(DIRECTORY resources DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
 install(DIRECTORY ui DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
 
