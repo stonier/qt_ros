@@ -54,6 +54,3 @@ def create_qt_ros_package(package, depends, type):
     
 def create_qt_ros_catkin_package(package, depends):
     create_qt_ros_package(package, depends, 'qt-ros')
-
-def create_qt_ros_legacy_package(package, depends):
-    create_qt_ros_package(package, depends, 'qt-ros-legacy')

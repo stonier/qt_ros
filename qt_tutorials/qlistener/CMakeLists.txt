@@ -17,4 +17,4 @@ file(GLOB_RECURSE QT_SOURCES RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} FOLLOW_SYMLINK
 
 add_executable(qlistener ${QT_SOURCES} ${QT_MOC_HPP})
 target_link_libraries(qlistener qtutorials)
-install(TARGETS qlistener RUNTIME DESTINATION share/qt_tutorials/bin)
+install(TARGETS qlistener RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})

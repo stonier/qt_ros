@@ -1,9 +1,0 @@
-/**
-\mainpage
-\htmlinclude manifest.html
-
-@section Overview
-
-Keeping the name qt_create for legacy reasons. The python package however
-is called roscreate-qt-pkg.
-*/

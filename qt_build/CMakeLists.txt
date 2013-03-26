@@ -9,15 +9,6 @@ cmake_minimum_required(VERSION 2.8.0)
 ##############################################################################
 
 project(qt_build)
-find_package(ROS COMPONENTS catkin)
-catkin_project(qt_build
-    CFG_EXTRAS qt-ros.cmake
-)
+find_package(catkin REQUIRED)
+catkin_package(CFG_EXTRAS qt-ros.cmake)
 
-##############################################################################
-# Install
-##############################################################################
-
-install(FILES qt-ros.cmake manifest.xml CMakeLists.txt
-  DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_build
-  )

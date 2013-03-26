@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>qt_build</name>
+  <version>0.1.4</version>
+  <description>
+    Currently just maintains a cmake api for simplifying the building
+    of qt apps within the ros framework.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+
+  <url type="bugtracker">https://github.com/stonier/qt_ros/issues</url>
+  <url type="repository">https://github.com/stonier/qt_ros</url>
+
+  <author>Daniel Stonier</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

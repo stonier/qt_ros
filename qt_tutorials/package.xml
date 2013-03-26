@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package>
+  <name>qt_tutorials</name>
+  <version>0.1.4</version>
+  <description>
+     Example qt programs, generated from code similar to that used by the 
+     roscreate-qt-pkg script and styled on roscpp_tutorials.
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+
+  <url type="bugtracker">https://github.com/stonier/qt_ros/issues</url>
+  <url type="repository">https://github.com/stonier/qt_ros</url>
+
+  <author>Daniel Stonier</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>qt_build</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>libqt4-dev</build_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>qt_build</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>libqt4-dev</run_depend>
+</package>

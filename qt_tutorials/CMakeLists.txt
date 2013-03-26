@@ -1,17 +1,20 @@
 project(qt_tutorials)
 find_package(catkin)
-# These find_package calls setup ROS_INCLUDE_DIRS and ROS_LIBRARIES and 
-# all the component variables too (e.g. roscpp_INCLUDE_DIR?)
-find_package(ROS REQUIRED COMPONENTS qt_build genmsg std_msgs roscpp)
 
-include_directories(${ROS_INCLUDE_DIRS})
+##############################################################################
+# Catkin Configuration
+##############################################################################
+
+# These find_package calls setup catkin_INCLUDE_DIRS and ROS_LIBRARIES and 
+# all the component variables too (e.g. roscpp_INCLUDE_DIR?)
+find_package(catkin REQUIRED COMPONENTS qt_build message_generation std_msgs roscpp)
+include_directories(${catkin_INCLUDE_DIRS})
 
 ##############################################################################
 # Ros Environment Configuration
 ##############################################################################
 
 # set(CMAKE_VERBOSE_MAKEFILE TRUE)
-# set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 
 ##############################################################################
 # Qt Environment
@@ -22,11 +25,13 @@ include_directories(${ROS_INCLUDE_DIRS})
 rosbuild_prepare_qt4(QtCore QtGui) # Add the appropriate components to the component list here
 
 ##############################################################################
-# Comms
+# Services
 ##############################################################################
 
 add_service_files(DIRECTORY srv FILES TwoInts.srv)
 generate_messages(DEPENDENCIES std_msgs)
+
+catkin_package(CATKIN_DEPENDS message_runtime std_msgs roscpp)
 
 ##############################################################################
 # Subprojects
@@ -48,6 +53,4 @@ install(FILES manifest.xml CMakeLists.txt
   )
 install(DIRECTORY resources DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
 install(DIRECTORY ui DESTINATION ${CMAKE_INSTALL_PREFIX}/share/qt_tutorials)
-
-catkin_project(qt_tutorials)
 

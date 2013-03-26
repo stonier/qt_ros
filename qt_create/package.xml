@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>qt_create</name>
+  <version>0.1.4</version>
+  <description>
+     Provides templates and scripts for creating qt-ros packages
+     (similar to roscreate-pkg).
+  </description>
+  <maintainer email="d.stonier@gmail.com">Daniel Stonier</maintainer>
+  <license>BSD</license>
+
+  <url type="bugtracker">https://github.com/stonier/qt_ros/issues</url>
+  <url type="repository">https://github.com/stonier/qt_ros</url>
+
+  <author>Daniel Stonier</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
