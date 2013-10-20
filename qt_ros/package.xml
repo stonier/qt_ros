@@ -12,6 +12,7 @@
   <url type="bugtracker">https://github.com/stonier/qt_ros/issues</url>
   <author>Daniel Stonier</author>
 
+  <buildtool_depend>catkin</buildtool_depend>
   <run_depend>qt_build</run_depend>
   <run_depend>qt_create</run_depend>
   <run_depend>qt_tutorials</run_depend>
