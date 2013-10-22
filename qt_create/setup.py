@@ -1,12 +1,9 @@
+#!/usr/bin/env pyyhon
+
 from distutils.core import setup
+from catkin_pkg.python_setup import generate_distutils_setup
 
-import sys
-sys.path.insert(0, 'src')
-
-from qt_create import __version__
-
-setup(name='qt_create',
-      version= __version__,
+d = generate_distutils_setup(
       packages=['qt_create'],
       package_dir = {'':'src'},
       scripts = ["scripts/catkin_create_qt_pkg"],
@@ -21,16 +18,8 @@ setup(name='qt_create',
            'templates/qt-ros/manifest.xml',
            'templates/qt-ros/Makefile',
            ]},
-      author = "Daniel Stonier",
-      author_email = "d.stonier@gmail.com",
-      url = "http://pypi.python.org/pypi/roscreate-qt-pkg/",
-      download_url = "https://github.com/stonier/qt_ros.git",
-      keywords = ["ROS"],
-      classifiers = [
-        "Programming Language :: Python",
-        "License :: OSI Approved :: BSD License" ],
-      description = "Creates qt package templates for RoS",
-      long_description = open('Readme.md').read(),
-      license = "BSD"
+      requires=[]
       )
+
+setup(**d)
 
