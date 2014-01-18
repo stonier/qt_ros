@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>qt_tutorials</name>
-  <version>0.2.2</version>
+  <version>0.2.3</version>
   <description>
      Example qt programs, generated from code similar to that used by the 
      roscreate-qt-pkg script and styled on roscpp_tutorials.
