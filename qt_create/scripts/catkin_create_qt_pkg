@@ -16,6 +16,6 @@ if __name__ == "__main__":
     depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
 
     create_qt_ros_catkin_package(package, depends )
-    print "\nPlease edit %s/manifest.xml and mainpage.dox to finish creating your package"%package
+    print "\nPlease edit %s/package.xml and mainpage.dox to finish creating your package"%package
 
 

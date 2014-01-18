@@ -15,7 +15,7 @@ d = generate_distutils_setup(
            'templates/qt-ros/resources/*.qrc',
            'templates/qt-ros/resources/images/*.png',
            'templates/qt-ros/mainpage.dox',
-           'templates/qt-ros/manifest.xml',
+           'templates/qt-ros/package.xml',
            'templates/qt-ros/Makefile',
            ]},
       requires=[]
