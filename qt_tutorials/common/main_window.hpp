@@ -13,8 +13,11 @@
 *****************************************************************************/
 
 #include <QtGui/QMainWindow>
+
+#ifndef Q_MOC_RUN
 #include "common/ui_main_window.h"
 #include "qnode.hpp"
+#endif
 
 /*****************************************************************************
 ** Interface [MainWindow]

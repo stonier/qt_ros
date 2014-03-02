@@ -16,11 +16,14 @@
 ** Includes
 *****************************************************************************/
 
+#ifndef Q_MOC_RUN
 #include <ros/ros.h>
-#include <string>
-#include <std_msgs/String.h>
 #include "../common/qnode.hpp"
 #include "qt_tutorials/TwoInts.h"
+#endif
+
+#include <string>
+#include <std_msgs/String.h>
 
 /*****************************************************************************
 ** Class

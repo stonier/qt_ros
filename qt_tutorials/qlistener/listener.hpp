@@ -16,10 +16,13 @@
 ** Includes
 *****************************************************************************/
 
+#ifndef Q_MOC_RUN
 #include <ros/ros.h>
-#include <string>
-#include <std_msgs/String.h>
 #include "../common/qnode.hpp"
+#endif
+
+#include <std_msgs/String.h>
+#include <string>
 
 /*****************************************************************************
 ** Class
