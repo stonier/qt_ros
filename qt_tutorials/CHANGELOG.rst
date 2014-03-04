@@ -2,6 +2,11 @@
 Changelog for package qt_tutorials
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Fix: Parse error at BOOST_JOIN in Qt's moc (fix `#8 <https://github.com/stonier/qt_ros/issues/8>`_).
+* Contributors: Benjamin Chrétien
+
 0.2.2 (2013-10-24)
 ------------------
 * add cmake_minimum_required to the cmake logic (build farm needs it)
