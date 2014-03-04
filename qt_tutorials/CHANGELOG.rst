@@ -5,7 +5,7 @@ Changelog for package qt_tutorials
 0.2.4 (2014-03-04)
 ------------------
 * Fix: Parse error at BOOST_JOIN in Qt's moc (fix `#8 <https://github.com/stonier/qt_ros/issues/8>`_).
-* Contributors: Benjamin Chrétien
+* Contributors: Benjamin Chretien
 
 0.2.2 (2013-10-24)
 ------------------
