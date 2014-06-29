@@ -2,6 +2,10 @@
 Changelog for package qt_create
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.2.6 (2014-06-29)
+------------------
+* bugfix catkin crawling of the templates directory.
+
 0.2.4 (2014-03-04)
 ------------------
 
