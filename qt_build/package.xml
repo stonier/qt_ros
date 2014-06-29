@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>qt_build</name>
-  <version>0.2.5</version>
+  <version>0.2.6</version>
   <description>
     Currently just maintains a cmake api for simplifying the building
     of qt apps within the ros framework.
