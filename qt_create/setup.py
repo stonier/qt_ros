@@ -8,6 +8,7 @@ d = generate_distutils_setup(
       package_dir = {'':'src'},
       scripts = ["scripts/catkin_create_qt_pkg"],
       package_data = {'qt_create': [
+           'templates/CATKIN_IGNORE',
            'templates/qt-ros/CMakeLists.txt',
            'templates/qt-ros/src/*.cpp',
            'templates/qt-ros/ui/*.ui',
