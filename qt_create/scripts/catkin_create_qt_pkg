@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # no checking dependencies like old roscreate-pkg did
     # since we are usually not in a shell
     depends = args[1:]
-    depends = ''.join(['  <depend package="%s"/>\n'%d for d in depends])
+    depends = ''.join(['  <build_depend>{0}</build_depend>\n  <run_depend>{0}</run_depend>\n' .format(d) for d in depends])
 
     create_qt_ros_catkin_package(package, depends )
     print "\nPlease edit %s/package.xml and mainpage.dox to finish creating your package"%package
