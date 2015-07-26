@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.2.8 (2015-07-26)
+------------------
+* bugfix catkin package depend tags
+
 0.2.7 (2014-07-27)
 ------------------
 * update for indigo
