@@ -15,4 +15,5 @@
   <author>Daniel Stonier</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>qt_build</build_depend>
 </package>
