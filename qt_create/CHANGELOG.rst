@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.2.9 (2016-02-19)
+------------------
+* add dependency on qt_build so an app can be created and compiled immediately
+
 0.2.8 (2015-07-26)
 ------------------
 * bugfix catkin package depend tags
