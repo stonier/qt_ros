@@ -16,7 +16,9 @@
 ** Includes
 *****************************************************************************/
 
+#ifndef Q_MOC_RUN
 #include <ros/ros.h>
+#endif
 #include <string>
 #include <QThread>
 #include <QStringListModel>
