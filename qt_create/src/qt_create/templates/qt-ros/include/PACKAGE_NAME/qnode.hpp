@@ -16,6 +16,8 @@
 ** Includes
 *****************************************************************************/
 
+// To workaround boost/qt4 problems that won't be bugfixed. Refer to
+//    https://bugreports.qt.io/browse/QTBUG-22829
 #ifndef Q_MOC_RUN
 #include <ros/ros.h>
 #endif
