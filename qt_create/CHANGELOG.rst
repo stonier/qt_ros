@@ -2,6 +2,10 @@
 Changelog
 ^^^^^^^^^
 
+0.2.10 (2018-02-10)
+-------------------
+* Workaround applied for Qt4 and BOOST_JOIN problems
+
 0.2.9 (2016-02-19)
 ------------------
 * add dependency on qt_build so an app can be created and compiled immediately
@@ -17,13 +21,6 @@ Changelog
 0.2.6 (2014-06-29)
 ------------------
 * bugfix catkin crawling of the templates directory.
-
-0.2.4 (2014-03-04)
-------------------
-
-0.2.3 (2014-01-18)
-------------------
-
 
 0.2.2 (2013-10-24)
 ------------------
