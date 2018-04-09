@@ -48,7 +48,7 @@ MainWindow::MainWindow(int argc, char** argv, QWidget *parent)
     ** Auto Start
     **********************/
     if ( ui.checkbox_remember_settings->isChecked() ) {
-        on_button_connect_clicked(true);
+        on_button_connect_clicked();
     }
 }
 
@@ -70,23 +70,15 @@ void MainWindow::showNoMasterMessage() {
  * is already checked or not.
  */
 
-void MainWindow::on_button_connect_clicked(bool check ) {
-	if ( ui.checkbox_use_environment->isChecked() ) {
-		if ( !qnode.init() ) {
-			showNoMasterMessage();
-		} else {
-			ui.button_connect->setEnabled(false);
-		}
+void MainWindow::on_button_connect_clicked() {
+	if ( ! qnode.init(ui.line_edit_master->text().toStdString(),
+			   ui.line_edit_host->text().toStdString()) ) {
+		showNoMasterMessage();
 	} else {
-		if ( ! qnode.init(ui.line_edit_master->text().toStdString(),
-				   ui.line_edit_host->text().toStdString()) ) {
-			showNoMasterMessage();
-		} else {
-			ui.button_connect->setEnabled(false);
-			ui.line_edit_master->setReadOnly(true);
-			ui.line_edit_host->setReadOnly(true);
-			ui.line_edit_topic->setReadOnly(true);
-		}
+		ui.button_connect->setEnabled(false);
+		ui.line_edit_master->setReadOnly(true);
+		ui.line_edit_host->setReadOnly(true);
+		ui.line_edit_topic->setReadOnly(true);
 	}
 }
 
