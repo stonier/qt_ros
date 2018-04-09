@@ -62,7 +62,6 @@ void MainWindow::showNoMasterMessage() {
 	QMessageBox msgBox;
 	msgBox.setText("Couldn't find the ros master.");
 	msgBox.exec();
-    close();
 }
 
 /*
